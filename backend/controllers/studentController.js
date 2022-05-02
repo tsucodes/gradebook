@@ -17,5 +17,29 @@ router.get('/', (req, res, next) => {
 		.catch(next);
 });
 
+// get a student by ID
+router.get('/:studentId', async (req, res, next) => {
+    try {
+        // find student by unique ID
+        const Students = await Student.findById(req.body);
+        // send back to frontend as Json
+        res.json(Students);
+    } catch (err) {
+        next (err);
+    }
+});
+
+// Create Post a student
+router.post('/', async (req, res, next) => {
+    try {
+        // use the data in the req body to add new studentreport card
+        const newStudent = await Student.create(req.body);
+        // if sucessful send the data back to the record that was inserted and respond with redirect to '/'
+        res.redirect(303, '/')
+    } catch (err) {
+        next (err);
+    }
+});
+
 // Export this router object so that it is accessible when we require the file elsewhere
 module.exports = router;

@@ -6,7 +6,7 @@ const express = require('express');
 // instantiate express
 const app = express();
 app.set('port', process.env.PORT || 3000);
-// const cors = require('cors');
+const cors = require('cors');
 //=============================================================================
 // Middleware
 //=============================================================================
@@ -16,7 +16,7 @@ app.use(express.json());
 // `express.urlencoded` parses x-ww-form-urlencoded request data and
 //  adds it to the request object as request.body
 app.use(express.urlencoded({ extended: true }));
-// app.use(cors());
+app.use(cors());
 //=============================================================================
 // ROUTES
 //=============================================================================

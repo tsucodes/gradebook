@@ -1,21 +1,21 @@
 [
 	{
-		"name": "Tsani Rhodes",
+		"Name": "Tsani Rhodes",
 		"Course": "SEI",
         "Gpa": "4.0"
 	},
 	{
-		"name": "McKenzie Camacho",
+		"Name": "McKenzie Camacho",
 		"Course": "SEI",
         "Gpa": "4.0"
 	},
 	{
-		"name": "Tony Bosco",
+		"Name": "Tony Bosco",
 		"Course": "SEI",
         "Gpa": "4.0"
 	},
 	{
-		"name": "Jessie Callado",
+		"Name": "Jessie Callado",
 		"Course": "SEI",
         "Gpa": "4.0"
 	}
