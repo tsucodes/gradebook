@@ -9,6 +9,6 @@ const studentData = studentSeeds.map(student=>{
 
 Student.deleteMany({})
     .then(() => {
-            student.insertMany(studentData);
+            Student.insertMany(studentData);
         })
     .catch(console.error)
