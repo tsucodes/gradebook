@@ -6,14 +6,14 @@ const router = express.Router();
 // import the Student model
 const Student = require('../models/Student');
 
-// Add routes to the router object
+// this does not get seedstudent data
 // Index: GET all the Students
 router.get('/', (req, res, next) => {
-	// 1. Get all of the Students from the DB
+	// Get all of the Students from the DB
 	Student.find({})
-		// 2. Send them back to the client as JSON
+		//  Send them back to the client as JSON
 		.then((Students) => res.json(Students))
-		// 3. If there's an error pass it on!
+		// If there's an error pass it on
 		.catch(next);
 });
 
@@ -37,7 +37,46 @@ router.post('/', async (req, res, next) => {
         // if sucessful send the data back to the record that was inserted and respond with redirect to '/'
         res.redirect(303, '/')
     } catch (err) {
-        next (err);
+        next (err)
+    }
+});
+// Update: Put a Student
+router.put('/:studentId', async (req, res, next) => {
+	try {
+		// find the student by id, passing in two additional arguments:
+		// the request body holds the updated information
+		// { new: true } returns the updated document instead of the old one
+		const StudentToUpdate = await Student.findByIdAndUpdate(
+			req.params.studentId,
+			req.body,
+			{
+				new: true,
+			}
+		);
+		// If a studnet was found and operation successful
+		if (StudentToUpdate) {
+			// send back updated student
+			res.redirect(303, '/')
+		} else {
+			// else send back 404 Not Found
+			res.sendStatus(404);
+		}
+	} catch (error) {
+		next(err);
+	}
+});
+
+router.delete('/:studentId', async (req, res, next) => {
+    try {
+        const StudentToDelete = await Student.findByIdAndDelete(req.params.studentId,{new: true});
+        console.log(StudentToDelete);
+        if (StudentToDelete) {
+            res.redirect(303, '/')
+        }else{
+            res.sendStatus(404);
+        }
+    }catch(error) {
+        next(err);
     }
 });
 
