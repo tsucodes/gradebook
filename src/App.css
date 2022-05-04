@@ -1,0 +1,18 @@
+.header{
+  text-align: center;
+}
+
+
+
+.input-form{
+  background-color: rgb(199, 193, 193);
+  height: 300px;
+  width: 300px;
+  display: flex;
+  border-style: solid black;
+  text-align: center;
+}
+
+.name{
+  display: flex;
+}
