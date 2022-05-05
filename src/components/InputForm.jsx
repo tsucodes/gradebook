@@ -12,7 +12,7 @@ const InputForm = () => {
         e.preventDefault();
     }
     const addStudent = () => {
-        axios.post('http://localhost:3000/students',student)
+        axios.post('http://localhost:3001/students',student)
     }
     return(
         <div className="input-form">

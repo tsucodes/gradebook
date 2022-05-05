@@ -5,7 +5,7 @@ const express = require('express');
 
 // instantiate express
 const app = express();
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 const cors = require('cors');
 //=============================================================================
 // Middleware

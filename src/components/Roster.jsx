@@ -6,10 +6,10 @@ const Roster = () => {
     const [studentList, setStudentList] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:3000/students').then((allstudents) => {
+        axios.get('http://localhost:3001/students').then((allstudents) => {
             setStudentList(allstudents.data);
         })
-    }, [])
+    })
     
     return(
         <div className="roster">
